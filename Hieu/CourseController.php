@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -13,7 +14,10 @@ class CourseController extends Controller
     }
 
     public function about() {
-        return view('front.about.about');
+        $teachers = Teacher::all();
+
+
+        return view('front.about.about', compact('teachers'));
     }
 
     public function contact() {
@@ -22,10 +26,10 @@ class CourseController extends Controller
     public function faq() {
         return view('front.faq.faq');
     }
-    public function entranceexam() {
-        return view('front.entranceexam.entranceexam');
+    public function entrance_exam() {
+        return view('front.entrance_exam.entrance_exam');
     }
     public function search_exam() {
-        return view('front.search_exam.search_exam');
+        return view('front.entrance_exam.search_exam');
     }
 }
